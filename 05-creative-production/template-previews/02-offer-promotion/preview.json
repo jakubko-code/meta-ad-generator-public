@@ -1,0 +1,33 @@
+{
+  "wireframe": {
+    "file": "05-creative-production/template-previews/02-offer-promotion/wireframe.svg",
+    "template_sha256": "d329f6808e5071a404725ba235018b520f3a23ede75625c5d93de7d0f992f9fc",
+    "generated_at": "2026-08-12T14:40:30+00:00",
+    "generator": "deterministic-svg-v1"
+  },
+  "schema_version": 1,
+  "template_path": "05-creative-production/01-templates-by-motion/02-offer-promotion.md",
+  "template_sha256": "d329f6808e5071a404725ba235018b520f3a23ede75625c5d93de7d0f992f9fc",
+  "template_number": 2,
+  "slug": "02-offer-promotion",
+  "title": "02 — Offer / Promotion",
+  "scope": "global",
+  "brand": "",
+  "aspect_ratio": "9:16",
+  "needs_product_images": true,
+  "styles": [
+    {
+      "code": "A",
+      "name": "Default"
+    }
+  ],
+  "selected_style": "A",
+  "slots": [
+    "OFFER HEADLINE",
+    "OFFER DETAILS",
+    "VALUE ADDS",
+    "CTA"
+  ],
+  "description": "A direct-response offer ad. The headline IS the offer. The product anchors the frame. A color split between primary brand color and a contrast color creates visual stopping power. Works when the offer itself is strong enough to be the whole argument — free trial, percentage off, bundle pricing, money-back guarantee.",
+  "layout": "hero"
+}

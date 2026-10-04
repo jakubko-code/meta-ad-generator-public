@@ -1,0 +1,22 @@
+.env
+.env.local
+*.env
+
+__pycache__/
+*.pyc
+.DS_Store
+
+# Klientske dáta ostávajú iba lokálne. V Git repozitári držíme len prázdny kontajner.
+brands/*
+!brands/.gitkeep
+
+# tools/dashboard — lokálne artefakty (generované z tvojich dát)
+dashboard.html
+master-gallery.html
+flagged.json
+brands/*/master-gallery.html
+
+# Vygenerované kreatívy — veľké a regenerovateľné z prompts-*.json
+brands/*/products/*/product-image-ads/*/outputs/
+brands/*/products/*/product-image-ads/*/outputs-*/
+brands/*/products/*/animations/

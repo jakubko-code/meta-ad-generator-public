@@ -1,0 +1,34 @@
+{
+  "wireframe": {
+    "file": "05-creative-production/template-previews/19-highlighted-testimonial/wireframe.svg",
+    "template_sha256": "1f3f83ee23774c002a06aea902baa73293f0299c3f83d1da544e0ab7be303088",
+    "generated_at": "2026-08-12T14:40:30+00:00",
+    "generator": "deterministic-svg-v1"
+  },
+  "schema_version": 1,
+  "template_path": "05-creative-production/01-templates-by-motion/19-highlighted-testimonial.md",
+  "template_sha256": "1f3f83ee23774c002a06aea902baa73293f0299c3f83d1da544e0ab7be303088",
+  "template_number": 19,
+  "slug": "19-highlighted-testimonial",
+  "title": "19 — Highlighted / Annotated Testimonial",
+  "scope": "global",
+  "brand": "",
+  "aspect_ratio": "1:1",
+  "needs_product_images": true,
+  "styles": [
+    {
+      "code": "A",
+      "name": "Default"
+    }
+  ],
+  "selected_style": "A",
+  "slots": [
+    "HIGHLIGHT PHRASE 1",
+    "HIGHLIGHT PHRASE 2",
+    "TRUST BADGE",
+    "REVIEWER",
+    "REVIEW TEXT"
+  ],
+  "description": "Long-form customer quote set in large body copy across most of the frame. Key phrases are highlighted in neon-yellow / lime-green rectangular backgrounds (like a physical highlighter marker). Customer headshot + name top-left. Product bottom-right with a trust badge. The highlighter directs the eye to the \"money lines\" while the surrounding body provides full context.",
+  "layout": "testimonial"
+}

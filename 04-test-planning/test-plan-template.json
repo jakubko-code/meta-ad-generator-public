@@ -1,0 +1,58 @@
+{
+  "schema_version": 2,
+  "status": "draft",
+  "plan_id": "TP-YYYY-MM-DD-NAZOV",
+  "market": "sk",
+  "campaign_objective": "sales",
+  "funnel_stage": "TOF",
+  "test_question": "Ktorý hook najlepšie zastaví scroll pri rovnakej persone, angle, ponuke a formáte?",
+  "hypothesis": "Situačný hook prekoná všeobecný produktový hook v primárnej metrike, pretože sa zákazník rýchlejšie spozná v konkrétnom momente.",
+  "test_variable": "hook",
+  "test_design": "isolated",
+  "test_method": "modular-isolation",
+  "primary_metric": "outbound CTR",
+  "constants": [
+    "rovnaká persona",
+    "rovnaký angle",
+    "rovnaká ponuka",
+    "rovnaký vizuálny formát"
+  ],
+  "data_gate": {
+    "minimum_runtime": "najmenej 3 celé dni po learningu bez zásahu",
+    "minimum_evidence": "na soft verdikt 8 000 impresií a 30 outbound klikov na variant; na hard verdikt 10 nákupov na variant; pod prahom je verdikt predbežný",
+    "minimum_days": 3,
+    "minimum_impressions_per_variant": 8000,
+    "minimum_events_per_variant": {
+      "event": "outbound_clicks",
+      "count": 30
+    }
+  },
+  "learnings": {
+    "reviewed": true,
+    "applied": ["L001"],
+    "predecessor_plan_id": null,
+    "note": "L001: situačné hooky mali pri tejto persone vyšší outbound CTR; test overuje, či to platí aj pre novú kategóriu."
+  },
+  "variants": [
+    {
+      "concept_id": "C01",
+      "brief_id": "B01",
+      "persona": "konkrétna persona z avatar-sheet.md",
+      "awareness_stage": "problem-aware",
+      "angle": "konkrétny angle z briefs.md",
+      "hook": "presný hook alebo headline variantu A",
+      "format": "statik headline-first",
+      "template_number": 1
+    },
+    {
+      "concept_id": "C02",
+      "brief_id": "B01",
+      "persona": "konkrétna persona z avatar-sheet.md",
+      "awareness_stage": "problem-aware",
+      "angle": "konkrétny angle z briefs.md",
+      "hook": "presný hook alebo headline variantu B",
+      "format": "statik headline-first",
+      "template_number": 1
+    }
+  ]
+}

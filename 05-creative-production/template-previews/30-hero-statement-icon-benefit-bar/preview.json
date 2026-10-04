@@ -1,0 +1,31 @@
+{
+  "wireframe": {
+    "file": "05-creative-production/template-previews/30-hero-statement-icon-benefit-bar/wireframe.svg",
+    "template_sha256": "a3520df2e30eacd30b51132be5d2e5841b483555adf1d1cb2cbae5850932de8c",
+    "generated_at": "2026-08-12T14:40:30+00:00",
+    "generator": "deterministic-svg-v1"
+  },
+  "schema_version": 1,
+  "template_path": "05-creative-production/01-templates-by-motion/30-hero-statement-icon-benefit-bar.md",
+  "template_sha256": "a3520df2e30eacd30b51132be5d2e5841b483555adf1d1cb2cbae5850932de8c",
+  "template_number": 30,
+  "slug": "30-hero-statement-icon-benefit-bar",
+  "title": "30 — Hero Statement + Icon Benefit Bar",
+  "scope": "global",
+  "brand": "",
+  "aspect_ratio": "1:1",
+  "needs_product_images": false,
+  "styles": [
+    {
+      "code": "A",
+      "name": "Default"
+    }
+  ],
+  "selected_style": "A",
+  "slots": [
+    "SOCIAL PROOF",
+    "HEADLINE"
+  ],
+  "description": "Three-zone layout. Top 15%: massive 2-3 word power statement in a white banner (\"APPETITE KILLER.\"). Middle 55%: lifestyle product shot (hand holding a capsule above a supplement jar). Bottom 25%: light brand-color zone with 3 icon+label benefits in columns. Very bottom: scrolling ticker bar with social proof. Works for weight-loss / performance / functional products where the claim needs bluntness.",
+  "layout": "data"
+}

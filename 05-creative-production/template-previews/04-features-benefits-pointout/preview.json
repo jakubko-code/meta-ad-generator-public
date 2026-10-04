@@ -1,0 +1,33 @@
+{
+  "wireframe": {
+    "file": "05-creative-production/template-previews/04-features-benefits-pointout/wireframe.svg",
+    "template_sha256": "51b71987d05c972ef7c148e0ab3a27454a6b7d0cedae8e513790f7e2d53cf909",
+    "generated_at": "2026-08-12T14:40:30+00:00",
+    "generator": "deterministic-svg-v1"
+  },
+  "schema_version": 1,
+  "template_path": "05-creative-production/01-templates-by-motion/04-features-benefits-pointout.md",
+  "template_sha256": "51b71987d05c972ef7c148e0ab3a27454a6b7d0cedae8e513790f7e2d53cf909",
+  "template_number": 4,
+  "slug": "04-features-benefits-pointout",
+  "title": "04 — Features / Benefits Point-Out",
+  "scope": "global",
+  "brand": "",
+  "aspect_ratio": "4:5",
+  "needs_product_images": true,
+  "styles": [
+    {
+      "code": "A",
+      "name": "Default"
+    }
+  ],
+  "selected_style": "A",
+  "slots": [
+    "HEADER",
+    "BENEFIT 1-4",
+    "WEBSITE",
+    "CTA"
+  ],
+  "description": "An educational, diagram-style ad. The product sits centered like a specimen. Four callout boxes with connecting lines fan out, each naming one feature-to-benefit. Clean white background. Looks like a luxury-agency redesign of a scientific diagram. Works when the product has concrete, nameable features that translate to benefits (ingredient X → benefit Y).",
+  "layout": "data"
+}

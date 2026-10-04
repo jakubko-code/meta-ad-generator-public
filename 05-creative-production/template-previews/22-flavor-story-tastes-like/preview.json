@@ -1,0 +1,31 @@
+{
+  "wireframe": {
+    "file": "05-creative-production/template-previews/22-flavor-story-tastes-like/wireframe.svg",
+    "template_sha256": "854d7f70fe3063ed7650017a4651f145990df2bad077b839e4e09b81db8f6ef4",
+    "generated_at": "2026-08-12T14:40:30+00:00",
+    "generator": "deterministic-svg-v1"
+  },
+  "schema_version": 1,
+  "template_path": "05-creative-production/01-templates-by-motion/22-flavor-story-tastes-like.md",
+  "template_sha256": "854d7f70fe3063ed7650017a4651f145990df2bad077b839e4e09b81db8f6ef4",
+  "template_number": 22,
+  "slug": "22-flavor-story-tastes-like",
+  "title": "22 — Flavor Story / \"Tastes Like\"",
+  "scope": "global",
+  "brand": "",
+  "aspect_ratio": "1:1",
+  "needs_product_images": true,
+  "styles": [
+    {
+      "code": "A",
+      "name": "Default"
+    }
+  ],
+  "selected_style": "A",
+  "slots": [
+    "CLEAN LABEL CLAIM",
+    "HEADLINE"
+  ],
+  "description": "A photorealistic close-up food scene fills the entire background (raspberry donuts, chocolate cake, caramel drip). A headline at the top promises \"Tastes like [indulgence]\". The product sits casually dropped into the scene at a tilt. A stat bar at the bottom handles nutrition compliance (\"15g protein / 2g sugar / 180 cal\"). Works for health-forward food / supplement brands that taste indulgent.",
+  "layout": "ugc"
+}

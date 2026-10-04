@@ -1,0 +1,32 @@
+{
+  "wireframe": {
+    "file": "05-creative-production/template-previews/05-bullet-points/wireframe.svg",
+    "template_sha256": "c6a85bd456d352b0e2ae53532103029fed20893bd89d16c9f3cb4b4a1f9b8ee1",
+    "generated_at": "2026-08-12T14:40:30+00:00",
+    "generator": "deterministic-svg-v1"
+  },
+  "schema_version": 1,
+  "template_path": "05-creative-production/01-templates-by-motion/05-bullet-points.md",
+  "template_sha256": "c6a85bd456d352b0e2ae53532103029fed20893bd89d16c9f3cb4b4a1f9b8ee1",
+  "template_number": 5,
+  "slug": "05-bullet-points",
+  "title": "05 — Bullet-Points",
+  "scope": "global",
+  "brand": "",
+  "aspect_ratio": "4:5",
+  "needs_product_images": true,
+  "styles": [
+    {
+      "code": "A",
+      "name": "Default"
+    }
+  ],
+  "selected_style": "A",
+  "slots": [
+    "BENEFIT 1-5",
+    "HEADLINE",
+    "CTA"
+  ],
+  "description": "A split composition: product on the left (40%), a vertical stack of 5 benefit bullets on the right (60%). Each bullet is preceded by a filled brand-color dot. Generous spacing. Works when the product has 5 clear, parallel benefits you want the viewer to scan in 3 seconds.",
+  "layout": "data"
+}

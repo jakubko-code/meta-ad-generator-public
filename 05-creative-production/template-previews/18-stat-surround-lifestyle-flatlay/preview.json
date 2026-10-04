@@ -1,0 +1,31 @@
+{
+  "wireframe": {
+    "file": "05-creative-production/template-previews/18-stat-surround-lifestyle-flatlay/wireframe.svg",
+    "template_sha256": "aae783b0a4234de93c1cc5c80162c4b6b95b922aacfa3bbe75a3cf404dfd8394",
+    "generated_at": "2026-08-12T14:40:30+00:00",
+    "generator": "deterministic-svg-v1"
+  },
+  "schema_version": 1,
+  "template_path": "05-creative-production/01-templates-by-motion/18-stat-surround-lifestyle-flatlay.md",
+  "template_sha256": "aae783b0a4234de93c1cc5c80162c4b6b95b922aacfa3bbe75a3cf404dfd8394",
+  "template_number": 18,
+  "slug": "18-stat-surround-lifestyle-flatlay",
+  "title": "18 — Stat Surround / Callout Radial (Lifestyle Flatlay)",
+  "scope": "global",
+  "brand": "",
+  "aspect_ratio": "1:1",
+  "needs_product_images": true,
+  "styles": [
+    {
+      "code": "A",
+      "name": "Default"
+    }
+  ],
+  "selected_style": "A",
+  "slots": [
+    "STAT 1-4",
+    "HEADLINE"
+  ],
+  "description": "Stat radial like 13, but the hero is a hand holding the product mid-use within a lifestyle flatlay scene. Background is white with scattered lifestyle props filling the corners and edges (food plates, fruit, accessories) slightly out of focus. A filled banner headline runs across the top. Works when the product is experiential (food, drinks, wellness items you use daily).",
+  "layout": "data"
+}

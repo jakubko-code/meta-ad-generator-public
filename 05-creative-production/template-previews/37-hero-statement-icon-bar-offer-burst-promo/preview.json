@@ -1,0 +1,32 @@
+{
+  "wireframe": {
+    "file": "05-creative-production/template-previews/37-hero-statement-icon-bar-offer-burst-promo/wireframe.svg",
+    "template_sha256": "7befe1530a12895ab0b9cb457aaf2f64662ef8538d6914e025afed22847b75ae",
+    "generated_at": "2026-08-12T14:40:30+00:00",
+    "generator": "deterministic-svg-v1"
+  },
+  "schema_version": 1,
+  "template_path": "05-creative-production/01-templates-by-motion/37-hero-statement-icon-bar-offer-burst-promo.md",
+  "template_sha256": "7befe1530a12895ab0b9cb457aaf2f64662ef8538d6914e025afed22847b75ae",
+  "template_number": 37,
+  "slug": "37-hero-statement-icon-bar-offer-burst-promo",
+  "title": "37 — Hero Statement + Icon Bar + Offer Burst (Promo Variant)",
+  "scope": "global",
+  "brand": "",
+  "aspect_ratio": "1:1",
+  "needs_product_images": true,
+  "styles": [
+    {
+      "code": "A",
+      "name": "Default"
+    }
+  ],
+  "selected_style": "A",
+  "slots": [
+    "DISCOUNT BURST",
+    "PROMO BANNER",
+    "HEADLINE"
+  ],
+  "description": "Promo variant of 30. Dark moody background. Top banner: massive power statement with a period. Upper product zone: starburst badge with a % OFF discount rotated slightly. Center: a hand gripping the product from above, lifting it out of its retail packaging. Bottom: 3-icon benefit bar on a semi-transparent dark strip. Very bottom: bright accent promo banner. Sale-season vibe.",
+  "layout": "data"
+}

@@ -1,0 +1,27 @@
+{
+  "_comment": "Šablóna Veo b-roll segmentu. Skopíruj a vyplň na každý segment (hook-a/hook-b/telo/cta). Píš po anglicky. B-roll = ŽIADNY text v zábere.",
+  "task": "text_to_video",
+  "model": "veo-3.1-fast",
+  "segment": "hook-a | hook-b | telo | cta",
+  "duration_seconds": 8,
+  "aspect_ratio": "9:16",
+  "fps": 24,
+  "shot": {
+    "scene": "where we are — location/setting in detail",
+    "subject": "who/what is in frame",
+    "action": "what happens across the clip, beat by beat",
+    "camera": "movement + angle + focal feel (e.g. handheld 35mm slow push-in)",
+    "lighting": "natural/warm/soft etc.",
+    "mood": "the feeling"
+  },
+  "product_fidelity": "Exact product description — shape, material, color, details. Copy this identically into every segment so the product stays consistent (no keyframe reference is used).",
+  "continuity": {
+    "setting": "shared environment for telo+cta (keep identical across telo and cta)",
+    "grade": "color grade / look (keep identical across segments meant to cut together)",
+    "in_point": "what the first frame looks like (for clean cut from previous segment)",
+    "out_point": "what the last frame looks like (leads into next segment)"
+  },
+  "negative": "no on-screen text, no captions, no subtitles, no logos, no watermark, no UI elements, no brand names rendered in frame",
+  "audio": "optional ambient (or 'silent')",
+  "_extension_note": "Pre telo > 8 s: druhý súbor telo-2.json s task='extend', continue_from='telo-1 last second', a 'action' opisuje len ďalších +7 s pohybu (nie celú scénu odznova). Max 20× → ~148 s."
+}

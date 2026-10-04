@@ -1,0 +1,33 @@
+{
+  "wireframe": {
+    "file": "05-creative-production/template-previews/15-social-comment-screenshot/wireframe.svg",
+    "template_sha256": "8a060658d4cd7b02bb1ce8d08b21654fd97acb5d12d34e8f79c523d813311a3d",
+    "generated_at": "2026-08-12T14:40:30+00:00",
+    "generator": "deterministic-svg-v1"
+  },
+  "schema_version": 1,
+  "template_path": "05-creative-production/01-templates-by-motion/15-social-comment-screenshot.md",
+  "template_sha256": "8a060658d4cd7b02bb1ce8d08b21654fd97acb5d12d34e8f79c523d813311a3d",
+  "template_number": 15,
+  "slug": "15-social-comment-screenshot",
+  "title": "15 — Social Comment Screenshot + Product",
+  "scope": "global",
+  "brand": "",
+  "aspect_ratio": "1:1",
+  "needs_product_images": true,
+  "styles": [
+    {
+      "code": "A",
+      "name": "Default"
+    }
+  ],
+  "selected_style": "A",
+  "slots": [
+    "FULL REVIEW",
+    "TIMESTAMP",
+    "HEADLINE",
+    "REVIEWER"
+  ],
+  "description": "A bold hook headline at top. A screenshotted-style comment card in the middle (rawly laid out to look like an Instagram or Facebook comment). The product sits at the bottom. The rawness is the trust mechanic — it should look like someone screenshotted a real comment and pasted the product photo below.",
+  "layout": "testimonial"
+}

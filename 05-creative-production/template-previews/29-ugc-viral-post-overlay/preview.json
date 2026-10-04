@@ -1,0 +1,32 @@
+{
+  "wireframe": {
+    "file": "05-creative-production/template-previews/29-ugc-viral-post-overlay/wireframe.svg",
+    "template_sha256": "288efd41f9d67ba8d9f8aea7747436f09d3daa8191b1de19edeacb69aa77a65e",
+    "generated_at": "2026-08-12T14:40:30+00:00",
+    "generator": "deterministic-svg-v1"
+  },
+  "schema_version": 1,
+  "template_path": "05-creative-production/01-templates-by-motion/29-ugc-viral-post-overlay.md",
+  "template_sha256": "288efd41f9d67ba8d9f8aea7747436f09d3daa8191b1de19edeacb69aa77a65e",
+  "template_number": 29,
+  "slug": "29-ugc-viral-post-overlay",
+  "title": "29 — UGC + Viral Post Overlay",
+  "scope": "global",
+  "brand": "",
+  "aspect_ratio": "9:16",
+  "needs_product_images": false,
+  "styles": [
+    {
+      "code": "A",
+      "name": "Default"
+    }
+  ],
+  "selected_style": "A",
+  "slots": [
+    "HEADLINE",
+    "BODY",
+    "PLATFORM DETAILS"
+  ],
+  "description": "A casual iPhone selfie of a person doing something mundane (brushing teeth, making coffee, cooking). Overlaid in the center: a screenshot of a Reddit / X / Twitter post with a provocative opinion related to the product's problem space. The person appears to be reacting to or sharing the post. No product visible. No brand logo. No CTA. Works for awareness / hook ads where the opinion does the scroll-stopping.",
+  "layout": "ugc"
+}

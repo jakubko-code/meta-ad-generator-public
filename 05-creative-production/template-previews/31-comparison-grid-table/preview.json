@@ -1,0 +1,37 @@
+{
+  "wireframe": {
+    "file": "05-creative-production/template-previews/31-comparison-grid-table/wireframe.svg",
+    "template_sha256": "809ce80d49c5305f4a94ccaf725844616993e8a1e4b2fde967169d4e486407cc",
+    "generated_at": "2026-08-12T14:40:30+00:00",
+    "generator": "deterministic-svg-v1"
+  },
+  "schema_version": 1,
+  "template_path": "05-creative-production/01-templates-by-motion/31-comparison-grid-table.md",
+  "template_sha256": "809ce80d49c5305f4a94ccaf725844616993e8a1e4b2fde967169d4e486407cc",
+  "template_number": 31,
+  "slug": "31-comparison-grid-table",
+  "title": "31 — Comparison Grid / Table",
+  "scope": "global",
+  "brand": "",
+  "aspect_ratio": "1:1",
+  "needs_product_images": true,
+  "styles": [
+    {
+      "code": "A",
+      "name": "Default"
+    }
+  ],
+  "selected_style": "A",
+  "slots": [
+    "TABLE.ROWS.N.LEFT",
+    "TABLE.ROWS.N.RIGHT",
+    "TABLE.ROWS.0.LEFT",
+    "TABLE.ROWS.0.RIGHT",
+    "TABLE.ROWS.1.LEFT",
+    "TABLE.ROWS.1.RIGHT",
+    "TABLE.ROWS.2.LEFT",
+    "TABLE.ROWS.2.RIGHT"
+  ],
+  "description": "Structured 2-column comparison grid on white. Top row: your product on the left, competitor product on the right. Three horizontal rows below: each compares one attribute. Bold black heavy typography. No icons, no color. Typography and contrast do all the work. Meme-format feel that can go viral organically.",
+  "layout": "comparison"
+}

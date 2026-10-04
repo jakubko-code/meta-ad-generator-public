@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="sk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Kompletný onboardingový návod k Meta Ad Generatoru pre Claude Code a Codex.">
+  <title>Meta Ad Generator — návod pre kolegov</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink:#172033; --muted:#61708a; --line:#dbe2ec; --paper:#fff; --wash:#f4f7fb;
+      --strategy:#694fd1; --strategy-soft:#f0edff; --production:#13749c; --production-soft:#e7f6fc;
+      --learning:#157a55; --learning-soft:#e7f7f0; --warn:#9a5b00; --warn-soft:#fff3d9;
+      --danger:#b42318; --danger-soft:#ffebe9; --shadow:0 16px 48px rgba(24,35,59,.09);
+    }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--ink); background:var(--wash); font:16px/1.65 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    a { color:var(--strategy); }
+    .hero { padding:72px 24px 64px; color:white; background:radial-gradient(circle at 84% 12%,rgba(255,255,255,.18),transparent 30%),linear-gradient(135deg,#282064,#694fd1 60%,#856ee5); }
+    .hero-inner, main, footer, nav div { width:min(1120px,calc(100% - 40px)); margin:auto; }
+    .eyebrow { margin:0 0 8px; font-weight:800; letter-spacing:.09em; text-transform:uppercase; opacity:.78; }
+    h1 { margin:0; font-size:clamp(2.5rem,7vw,5rem); line-height:1; letter-spacing:-.05em; }
+    .lede { max-width:820px; margin:24px 0 0; font-size:1.22rem; opacity:.92; }
+    .hero-badges { display:flex; flex-wrap:wrap; gap:8px; margin-top:24px; }
+    .hero-badges span { padding:5px 11px; border:1px solid rgba(255,255,255,.28); border-radius:999px; background:rgba(255,255,255,.11); font-size:.82rem; font-weight:750; }
+    nav { position:sticky; top:0; z-index:10; overflow-x:auto; border-bottom:1px solid var(--line); background:rgba(255,255,255,.95); backdrop-filter:blur(12px); }
+    nav div { display:flex; gap:22px; }
+    nav a { padding:14px 0; color:var(--ink); font-size:.88rem; font-weight:750; text-decoration:none; white-space:nowrap; }
+    nav a:hover { color:var(--strategy); }
+    main { padding:48px 0 76px; }
+    section { margin:0 0 68px; scroll-margin-top:70px; }
+    h2 { margin:0 0 22px; font-size:clamp(1.7rem,4vw,2.25rem); line-height:1.18; letter-spacing:-.03em; }
+    h3 { margin:0 0 8px; font-size:1.12rem; }
+    h4 { margin:20px 0 6px; font-size:1rem; }
+    p { margin:0 0 14px; }
+    .muted { color:var(--muted); }
+    .callout,.card,.step,.mini { border:1px solid var(--line); border-radius:18px; background:var(--paper); }
+    .callout { padding:22px 24px; box-shadow:var(--shadow); }
+    .callout strong { display:block; margin-bottom:4px; }
+    .callout.warning { border-color:#efcb84; background:var(--warn-soft); box-shadow:none; }
+    .callout.safe { border-color:#a7dec8; background:var(--learning-soft); box-shadow:none; }
+    .callout.danger { border-color:#efb2ad; background:var(--danger-soft); box-shadow:none; }
+    .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+    .grid.three { grid-template-columns:repeat(3,minmax(0,1fr)); }
+    .card { padding:22px; box-shadow:var(--shadow); }
+    .card p:last-child { margin-bottom:0; color:var(--muted); }
+    .tag { display:inline-block; margin-bottom:11px; padding:4px 9px; border-radius:999px; font-size:.76rem; font-weight:850; letter-spacing:.02em; }
+    .tag.strategy { color:var(--strategy); background:var(--strategy-soft); }
+    .tag.production { color:var(--production); background:var(--production-soft); }
+    .tag.learning { color:var(--learning); background:var(--learning-soft); }
+    .workflow { display:grid; gap:14px; }
+    .step { position:relative; padding:22px 22px 22px 82px; border-left:5px solid var(--strategy); box-shadow:none; }
+    .step.production { border-left-color:var(--production); }
+    .step.learning { border-left-color:var(--learning); }
+    .step .number { position:absolute; top:20px; left:22px; display:grid; width:40px; height:40px; place-items:center; border-radius:50%; color:white; background:var(--strategy); font-weight:900; }
+    .step.production .number { background:var(--production); }
+    .step.learning .number { background:var(--learning); }
+    .step p { margin-bottom:7px; color:var(--muted); }
+    .step ul { margin:7px 0 0; }
+    .phase { margin:28px 0 12px; color:var(--muted); font-size:.8rem; font-weight:850; letter-spacing:.09em; text-transform:uppercase; }
+    pre { overflow-x:auto; margin:14px 0 0; padding:18px; border-radius:12px; color:#e9eefb; background:#172033; font:13px/1.58 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; }
+    code { font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; }
+    :not(pre)>code { padding:.15em .4em; border-radius:5px; color:#4034b5; background:var(--strategy-soft); }
+    table { width:100%; border-collapse:collapse; overflow:hidden; border-radius:14px; background:white; box-shadow:var(--shadow); }
+    th,td { padding:13px 15px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+    th { color:var(--muted); background:#f8f9fc; font-size:.79rem; letter-spacing:.04em; text-transform:uppercase; }
+    tr:last-child td { border-bottom:0; }
+    .checklist { padding:0; list-style:none; }
+    .checklist li { position:relative; margin:10px 0; padding-left:30px; }
+    .checklist li::before { content:"✓"; position:absolute; left:0; color:var(--learning); font-weight:900; }
+    .dont li::before { content:"×"; color:var(--danger); }
+    .sequence { display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin:18px 0; }
+    .sequence span { padding:7px 11px; border-radius:9px; background:var(--strategy-soft); color:var(--strategy); font-weight:800; }
+    .sequence i { color:var(--muted); font-style:normal; }
+    details { margin:12px 0; border:1px solid var(--line); border-radius:13px; background:white; }
+    summary { cursor:pointer; padding:15px 18px; font-weight:800; }
+    details > div { padding:0 18px 18px; color:var(--muted); }
+    footer { padding:0 0 50px; color:var(--muted); font-size:.9rem; }
+    @media (max-width:820px) { .grid,.grid.three { grid-template-columns:1fr; } table { display:block; overflow-x:auto; } }
+    @media (max-width:560px) { .hero { padding:48px 20px; } .hero-inner,main,footer,nav div { width:min(100% - 24px,1120px); } .step { padding-left:70px; } .step .number { left:16px; } }
+    @media print { nav { display:none; } body { background:white; } .hero { padding:30px 0; color:var(--ink); background:white; } .hero-inner,main,footer { width:100%; } .card,.callout,table { box-shadow:none; } section,.card,.step { break-inside:avoid; } details > div { display:block; } }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">Kompletný návod pre nového kolegu</p>
+      <h1>Meta Ad Generator</h1>
+      <p class="lede">Ako sa z reálneho zákazníckeho insightu stane naplánovaný, schválený, vygenerovaný a merateľný banner pre Meta Ads.</p>
+      <div class="hero-badges"><span>Claude Code</span><span>Codex</span><span>9 jasných krokov</span><span>Strategy-first workflow</span><span>Klientske dáta ostávajú lokálne</span></div>
+    </div>
+  </header>
+
+  <nav aria-label="Obsah"><div>
+    <a href="#orientation">Orientácia</a><a href="#routing">Kde začať</a><a href="#workflow">9 krokov</a><a href="#files">Súbory</a><a href="#plan">Test plán</a><a href="#gates">Kontroly</a><a href="#generate">Generovanie</a><a href="#results">Výsledky</a><a href="#languages">Jazyky</a><a href="#troubleshooting">Pomoc</a>
+  </div></nav>
+
+  <main>
+    <section id="orientation">
+      <h2>Najprv pochop, čo tento nástroj robí</h2>
+      <p>Meta Ad Generator nie je iba generátor obrázkov. Je to pracovný systém, ktorý prepája výskum zákazníka, reklamnú stratégiu, copywriting, kontrolu kvality, AI generovanie a spätnú väzbu z kampaní.</p>
+      <div class="grid" style="margin-top:20px">
+        <article class="card"><span class="tag strategy">META ADS MANAGER</span><h3>Rozhoduje, čo a prečo vyrábame</h3><p>Vytvorí persony, pains, angle mapu, hooky, architektúru kampane a testovaciu hypotézu. Do procesu vstupuje pred bannerom aj po jeho nasadení.</p></article>
+        <article class="card"><span class="tag production">IMAGE AD GENERATOR</span><h3>Kontrolovane vyrobí kreatívu</h3><p>Zo schváleného konceptu vytvorí copy, aplikuje template, vykoná scoring, zabezpečí ľudské schválenie, generovanie a vizuálnu kontrolu.</p></article>
+      </div>
+      <div class="callout warning" style="margin-top:18px"><strong>Schválenie textov nie je pokyn na generovanie.</strong>Platené API sa spúšťa až po úspešnej validácii a výslovnom pokyne človeka, napríklad „generuj“.</div>
+      <div class="callout safe" style="margin-top:14px"><strong>Claude Code aj Codex pracujú rovnako.</strong>Oba používajú tie isté projektové skilly a rovnakú dokumentáciu. Netreba udržiavať dve verzie workflowu.</div>
+    </section>
+
+    <section id="routing">
+      <h2>Kde máš začať</h2>
+      <table>
+        <thead><tr><th>Tvoja situácia</th><th>Prvý krok</th><th>Čo nasleduje</th></tr></thead>
+        <tbody>
+          <tr><td>Úplne nový klient</td><td>Brand foundation a Meta Ads Manager S</td><td>E/A → B1 → produkcia</td></tr>
+          <tr><td>Existujúci klient, nová kategória</td><td>Krok 2: strategický research</td><td>A → B1 → produkcia</td></tr>
+          <tr><td>Research existuje, potrebujeme nové reklamy</td><td>Meta Ads Manager A</td><td>B1 → kroky 5–7</td></tr>
+          <tr><td>Máme koncept aj platný <code>test-plan.json</code></td><td>Image Ad Generator, krok 5</td><td>Copy → kontroly → banner</td></tr>
+          <tr><td>Jeden schválený banner má render chybu</td><td>Krok 7</td><td>Regeneruj iba chybný variant</td></tr>
+          <tr><td>Máme dáta z bežiacej kampane</td><td>Meta Ads Manager C alebo D</td><td>Verdikt a cielená iterácia</td></tr>
+        </tbody>
+      </table>
+      <h3 style="margin-top:26px">Prvá správa agentovi</h3>
+      <pre><code>Priprav nového klienta pre Meta Ads.
+Začni brand foundation a strategickým researchom.
+Najprv mi povedz, ktoré podklady chýbajú.
+Zatiaľ nič negeneruj ani nespúšťaj.</code></pre>
+      <p class="muted" style="margin-top:12px">Ak už časť podkladov existuje, agent ju načíta a pokračuje od prvého chýbajúceho rozhodnutia. Nemá automaticky prerábať hotový research.</p>
+    </section>
+
+    <section id="workflow">
+      <h2>Celý workflow v 9 krokoch</h2>
+      <p class="phase">Stratégia — najprv rozhodneme, čo má reklama robiť</p>
+      <div class="workflow">
+        <article class="step"><span class="number">1</span><h3>Brand foundation</h3><p><strong>Cieľ:</strong> pochopiť značku skôr, než napíšeme prvú reklamnú vetu.</p><ul><li>Načíta sa web, positioning, ponuka, hlas a vizuál.</li><li>Vzniknú brand research brief, voice pravidlá a dve referenčné karty.</li><li>Zapíšu sa zákazy a chyby, ktoré sa nemajú opakovať.</li></ul><p><strong>Výstup:</strong> <code>brands/{brand}/brand-dna/</code>.</p></article>
+        <article class="step"><span class="number">2</span><h3>Strategický research — režim S</h3><p><strong>Cieľ:</strong> zistiť, komu hovoríme, čo ho bolí a akým jazykom problém opisuje.</p><ul><li>Review mining, recenzie, fóra, support, sales cally a konkurencia.</li><li>Persony, pains, objections, awareness stages, beliefs a category entry points.</li><li>Každý claim, citát, číslo a cena má dohľadateľný zdroj.</li><li>Pri novej kategórii agent pripraví prompt pre ChatGPT Deep Research, človek ho spustí a výstup vloží späť. Vynechať ho možno iba na výslovné rozhodnutie človeka, zapísané v <code>deep-research.md</code>.</li></ul><p><strong>Výstup:</strong> sedem research dokumentov v <code>marketing-research/</code>; SKU v pokrytej kategórii dostane iba <code>product-facts.md</code> s odkazom <code>research-source</code>.</p></article>
+        <article class="step"><span class="number">3</span><h3>Kampaň a kreatívne koncepty — režimy E + A</h3><p><strong>Cieľ:</strong> premeniť research na konkrétne reklamné stávky.</p><div class="sequence"><span>persona</span><i>→</i><span>angle</span><i>→</i><span>awareness</span><i>→</i><span>hook</span><i>→</i><span>CTA</span><i>→</i><span>formát</span></div><p>E určí kampaňový kontajner, ak je potrebný. A vytvorí kreatívne koncepty. Každý dostane stabilné <code>concept_id</code>.</p><p><strong>Výstup:</strong> koncepty zrozumiteľné ešte bez hotového dizajnu.</p></article>
+        <article class="step"><span class="number">4</span><h3>Testovací plán pred produkciou — režim B1</h3><p><strong>Cieľ:</strong> vopred zapísať, čo testujeme a podľa čoho vyhodnotíme výsledok.</p><ul><li>Najprv sa načítajú <code>testing/learnings.md</code> a aktívne testy; použité learning ID sa zapíšu do plánu.</li><li>Typ testu: izolovaný (mení sa jedna os), porovnanie konceptov alebo pilot. Pri izolovanom teste validátor overí, že ostatné strategické polia sú rovnaké.</li><li>Hypotéza, primárna metrika a dátová brána aj s číslami (dni, impresie, udalosti na variant).</li><li>Presné koncepty s unikátnym <code>concept_id</code>, ktoré sa majú vyrobiť.</li></ul><p>Pri hook teste môžu varianty použiť rovnaký template; výstupy odlišuje <code>concept_id</code>. <strong>Výstup:</strong> človekom potvrdený <code>test-plan.json</code> so stavom <code>planned</code>.</p></article>
+      </div>
+
+      <p class="phase">Produkcia — vyrábame iba to, čo bolo naplánované</p>
+      <div class="workflow">
+        <article class="step production"><span class="number">5</span><h3>Template a copy</h3><p><strong>Cieľ:</strong> zvoliť najvhodnejšiu vizuálnu štruktúru a napísať copy v hlase značky.</p><ul><li>Template sa vyberá až po koncepte a test pláne.</li><li>Nový formát si možno bezplatne pozrieť ako SVG wireframe v Template knižnici; platený Gemini specimen sa spúšťa iba explicitne.</li><li>Vznikne <code>prompts-{lang}.json</code> vo workflow v2.</li><li>Brief odkazuje na presný <code>concept_id</code>, personu, angle, awareness a hook.</li><li>Hook z plánu je presne text, ktorý sa vykreslí (<code>hook_field</code>, spravidla <code>headline</code>), a do promptu ide cez <code>{{placeholder}}</code>, nie natvrdo.</li></ul><p>Náhľad template-u je iba vizuálna dokumentácia. Hotové prompty sa hashovo previažu s plánom a <code>bind</code> hneď overí, či s ním sedia.</p></article>
+        <article class="step production"><span class="number">6</span><h3>Quality gates a schválenie človekom</h3><p><strong>Cieľ:</strong> zastaviť zlú stratégiu, copy, fakty alebo formát ešte pred plateným renderom.</p><ul><li>Agenti 01–06 hodnotia personu, angle, emóciu, brand, copy a formát.</li><li>Agent 07 overuje tvrdenia; Agent 08 má gramatické veto.</li><li>Človek vidí finálnu tabuľku textov a schváli ju.</li></ul><p>Zmena promptov po scoringu automaticky zneplatní scoring aj approval.</p></article>
+        <article class="step production"><span class="number">7</span><h3>Validácia, generovanie a vizuálny QA</h3><p><strong>Cieľ:</strong> bezpečne vytvoriť presný banner a skontrolovať skutočný obrázok.</p><ul><li>Najprv bezplatný <code>--validate-only</code>.</li><li>Platené generovanie až po explicitnom „generuj“.</li><li>Každý PNG sa otvorí a porovná s copy, brandom, produktom a plánom.</li><li>Manifest pri každom PNG uloží jeho SHA-256 a vstupy renderu; QA verdikt platí iba pre túto verziu súboru.</li></ul><p>Pri chybe sa regeneruje iba konkrétny variant; hotové <code>outputs/</code> sa nemažú.</p></article>
+      </div>
+
+      <p class="phase">Nasadenie a učenie — reklama musí priniesť poznatok</p>
+      <div class="workflow">
+        <article class="step learning"><span class="number">8</span><h3>Test handoff po produkcii — režim B2</h3><p><strong>Cieľ:</strong> prepojiť plán s reálnymi, vizuálne schválenými súbormi.</p><ul><li>Do trackera sa zapíše <code>plan_id</code>, <code>concept_id</code>, súbor a jeho SHA-256, naming a verzia; stav je <em>Pripravená</em>.</li><li>Po reálnom nasadení sa doplní Meta Ad ID a Adset ID — podľa nich sa neskôr párujú výsledky.</li><li>Overí sa, že varianty menia iba plánovanú premennú.</li><li>Vznikne launch checklist; metriky zostávajú prázdne.</li></ul><p>Kampaň bez výslovného súhlasu človeka nespúšťaj ani nemeň.</p></article>
+        <article class="step learning"><span class="number">9</span><h3>Vyhodnotenie, fatigue a learning — režimy C + D</h3><p><strong>Cieľ:</strong> z výkonu získať rozhodnutie aj prenositeľný poznatok.</p><ul><li>C čaká na dátovú bránu a odporučí škálovať, iterovať, vypnúť alebo počkať. Klikacia metrika je outbound CTR.</li><li>Verdikt je odporúčanie; stav v trackeri sa zmení až po potvrdenej zmene v účte.</li><li>D sleduje únavu kreatív a navrhne rotáciu.</li><li>Diagnóza vráti prácu do správneho kroku, nie automaticky do generovania.</li></ul><p><strong>Výstup:</strong> aktualizovaný tracker, learnings s ID (ďalší B1 ich načíta) a fatigue monitor.</p></article>
+      </div>
+    </section>
+
+    <section id="files">
+      <h2>Kde čo nájdeš</h2>
+      <h3>Hlavné priečinky nástroja</h3>
+      <pre><code>01-brand-foundation/             brand research a brand karty
+02-strategic-research/           metodika a research šablóny
+03-campaign-creative-strategy/   režimy E + A
+04-test-planning/                režim B1 a test-plan.json
+05-creative-production/          templates, copy, ad-swipe a previews
+06-quality-gates/                osem kontrolných agentov
+07-image-generation/             validácia a generovanie
+08-test-handoff/                 režim B2
+09-performance-learning/         režimy C + D
+tools/dashboard/                 Creative QA + Template knižnica
+BONUS/                           voliteľné rozšírenia</code></pre>
+
+      <h3 style="margin-top:28px">Štruktúra jedného klienta</h3>
+      <pre><code>brands/{brand}/
+├── brand-dna/
+│   ├── brand-research-brief.json
+│   ├── brand-spec-card.png
+│   ├── visual-style-card.png
+│   ├── voice-copy-styl.md
+│   └── chyby-neopakovat.md
+├── products/{product}/
+│   ├── marketing-research/
+│   │   ├── deep-research.md
+│   │   ├── avatar-sheet.md
+│   │   ├── offer-brief.md
+│   │   ├── necessary-beliefs.md
+│   │   ├── cep-sheet.md
+│   │   ├── briefs.md
+│   │   └── product-facts.md
+│   ├── source-product-images/
+│   └── product-image-ads/{YYYY-MM-DD-nazov}/
+│       ├── test-plan.json
+│       ├── prompts-sk.json
+│       ├── scoring-sk.json
+│       ├── approval-sk.json
+│       └── outputs/
+└── testing/
+    ├── tracker.md
+    ├── learnings.md
+    └── fatigue.md</code></pre>
+      <div class="callout safe" style="margin-top:18px"><strong>Obsah <code>brands/*</code> zostáva lokálny.</strong>Na GitHub sa neposiela klientsky research, fotografie, prompty, schválenia ani bannery. Ak chceš klienta odstrániť, po zálohe odstráň iba jeho <code>brands/{brand}/</code>.</div>
+    </section>
+
+    <section id="plan">
+      <h2>Prečo je <code>test-plan.json</code> taký dôležitý</h2>
+      <p>Predchádzajúci workflow vedel vytvoriť dobré bannery, ale testovacia logika sa často dopĺňala až potom. Workflow v2 používa plán ako kontrakt: produkcia nesmie potichu zmeniť rozhodnutia zo stratégie.</p>
+      <div class="grid three">
+        <article class="card"><span class="tag strategy">ZÁMER</span><h3>Čo testujeme</h3><p>Otázka, hypotéza a jedna premenná: napríklad hook, angle, formát alebo offer.</p></article>
+        <article class="card"><span class="tag strategy">KONTROLA</span><h3>Čo ostáva rovnaké</h3><p>Konštanty zabránia tomu, aby sme naraz zmenili personu, ponuku, formát aj headline.</p></article>
+        <article class="card"><span class="tag strategy">VERDIKT</span><h3>Kedy máme dosť dát</h3><p>Primárna metrika, minimálny runtime a číselné prahy (dni, impresie, udalosti na variant) sa určia pred spustením.</p></article>
+      </div>
+      <h3 style="margin-top:26px">Tri typy testu</h3>
+      <table>
+        <thead><tr><th><code>test_design</code></th><th>Kedy</th><th>Čo validátor vynúti</th></tr></thead>
+        <tbody>
+          <tr><td><code>isolated</code></td><td>Chceme prenositeľný poznatok o jednej osi.</td><td>Aspoň 2 varianty; líši sa iba testované pole, persona, angle, awareness, formát a template ostávajú rovnaké podľa typu premennej.</td></tr>
+          <tr><td><code>concept-comparison</code></td><td>Porovnávame celé koncepty.</td><td>Aspoň 2 varianty a <code>test_variable: concept</code>; výsledok hovorí o koncepte, nie o jednej premennej.</td></tr>
+          <tr><td><code>pilot</code></td><td>Overujeme jeden koncept.</td><td>Presne 1 variant; verdikt je vždy predbežný.</td></tr>
+        </tbody>
+      </table>
+      <p class="muted" style="margin-top:12px">Plán obsahuje aj pole <code>learnings</code>: či sa learnings načítali, ktoré ID sa použili, predchodcu testu a dôvod. Starší plán so <code>schema_version: 1</code> izoláciu ani prahy strojovo nekontroluje, preto ho generátor pustí iba s výslovným <code>--allow-legacy</code>. Pri izolovanom teste generátor porovná aj renderované prompty: pri hook teste sa smú líšiť iba polia hooku.</p>
+      <h3 style="margin-top:26px">Vytvorenie a validácia plánu</h3>
+      <pre><code>python3 04-test-planning/test_plan.py init \
+  --ad-set brands/{brand}/products/{product}/product-image-ads/{ad-set} \
+  --plan-id TP-YYYY-MM-DD-NAZOV \
+  --market sk --objective sales --funnel-stage TOF --test-variable hook
+
+python3 04-test-planning/test_plan.py validate \
+  --plan brands/{brand}/products/{product}/product-image-ads/{ad-set}/test-plan.json</code></pre>
+      <p class="muted" style="margin-top:12px">Príkaz <code>init</code> vytvorí draft so <code>schema_version: 2</code>. Agent doplní všetky polia, človek potvrdí smer a až potom sa stav zmení na <code>planned</code>.</p>
+      <h3 style="margin-top:24px">Naviazanie promptov na plán</h3>
+      <pre><code>python3 04-test-planning/test_plan.py bind \
+  --prompts brands/{brand}/products/{product}/product-image-ads/{ad-set}/prompts-sk.json</code></pre>
+      <p class="muted" style="margin-top:12px">Do promptov sa zapíše <code>workflow_version: 2</code>, ID plánu a SHA-256 a hneď sa overí kontrakt: koncepty, brief polia a hook ↔ renderované pole. Pri nezhode <code>bind</code> skončí chybou. Plán a prompty sa musia pokrývať presne 1 : 1. Po naviazaní sa plán nemení; výsledky patria do trackera a learnings. Starý ad set bez tejto väzby prejde iba s explicitným <code>--allow-legacy</code>, ktorý sa pri novom ad sete nepoužíva.</p>
+    </section>
+
+    <section id="gates">
+      <h2>Kontrolné brány pred generovaním</h2>
+      <table>
+        <thead><tr><th>Brána</th><th>Čo musí platiť</th><th>Čo blokuje pokračovanie</th></tr></thead>
+        <tbody>
+          <tr><td>Research</td><td>Vlastný alebo zdedený research má všetkých šesť dokumentov kategórie; pri novom pláne aj <code>product-facts.md</code>.</td><td>Chýbajúci <code>deep-research.md</code>, avatar sheet, offer brief, beliefs, CEP alebo briefy.</td></tr>
+          <tr><td>Stratégia</td><td>Platný plán, správny hash a zhodné strategické polia.</td><td>Iná persona, angle, awareness, hook alebo template.</td></tr>
+          <tr><td>Hook</td><td>Hook z plánu je presne vykreslený text a ide cez <code>{{placeholder}}</code>.</td><td>Iný headline než v pláne alebo text hooku natvrdo v prompte.</td></tr>
+          <tr><td>Brief</td><td><code>id</code>, <code>concept_id</code>, persona, angle, emotion a customer voice.</td><td>Chýbajúce polia alebo koncept mimo plánu.</td></tr>
+          <tr><td>Copy</td><td>Finálne texty, vyriešené placeholdery a povolené znaky.</td><td>Vymyslený claim, nedoložené číslo alebo chybná cena.</td></tr>
+          <tr><td>Scoring</td><td>Agenti 01–07 majú ≥90 + PASS; Agent 08 má PASS. Preklad smie mať 04–08 iba nad schváleným zdrojom.</td><td>Jediný FAIL, nízke skóre, neaktuálny hash alebo „preklad“ bez schváleného zdroja.</td></tr>
+          <tr><td>Človek</td><td>Finálna tabuľka copy je explicitne schválená.</td><td>Chýbajúci approval alebo approval podpísaný agentom.</td></tr>
+          <tr><td>Assety</td><td>Brand karty a potrebné produktové fotografie existujú.</td><td>Chýbajúca referenčná fotografia alebo brand karta.</td></tr>
+          <tr><td>Trh</td><td>Cena a mena sú potvrdené pre cieľový trh.</td><td>Automaticky prenesená alebo prepočítaná zahraničná cena.</td></tr>
+        </tbody>
+      </table>
+      <h3 style="margin-top:28px">Scoring artefakt</h3>
+      <pre><code>python3 07-image-generation/workflow_gate.py init-scoring \
+  --prompts path/to/prompts-sk.json --mode source</code></pre>
+      <p class="muted" style="margin-top:12px">Tento príkaz sám copy nehodnotí. Vytvorí strojovú šablónu viazanú na aktuálny hash; agenti do nej zapíšu reálne výsledky. Pri preklade použi <code>--mode translation</code> — prompty musia mať <code>source_prompts</code> a scoring si zapíše hash zdroja.</p>
+      <h3 style="margin-top:24px">Ľudské schválenie</h3>
+      <pre><code>python3 07-image-generation/workflow_gate.py approve \
+  --prompts path/to/prompts-sk.json \
+  --by "Meno schvaľovateľa" \
+  --at "2026-08-07T14:30:00+02:00" --language sk</code></pre>
+      <p class="muted" style="margin-top:12px">Ak preklad alebo verzia pre jazyk mimo trhu plánu obsahuje cenu, lokálny človek musí potvrdiť sumu aj menu. Použi cieľový jazyk a pridaj <code>--market-prices-confirmed</code>:</p>
+      <pre><code>python3 07-image-generation/workflow_gate.py approve \
+  --prompts path/to/prompts-de.json \
+  --by "Meno schvaľovateľa" \
+  --at "2026-08-07T14:30:00+02:00" --language de \
+  --market-prices-confirmed</code></pre>
+      <div class="callout warning" style="margin-top:18px"><strong>Ak sa copy po schválení zmení, approval už neplatí.</strong>Hashová väzba zabraňuje tomu, aby sa na generovanie potichu dostala iná verzia textu.</div>
+    </section>
+
+    <section id="generate">
+      <h2>Validácia, generovanie a vizuálny QA</h2>
+      <h3>1. Bezplatná technická kontrola</h3>
+      <pre><code>python3 07-image-generation/generate_ads.py \
+  --brand-dir brands/{brand}/products/{product}/product-image-ads/{ad-set} \
+  --lang sk --validate-only</code></pre>
+      <p class="muted" style="margin-top:12px">Validácia nekupuje žiadne obrázky. Kontroluje plán, research, prompty, hook, hashové väzby, scoring, approval, ceny, placeholdery a assety.</p>
+      <h3 style="margin-top:24px">2. Platené generovanie</h3>
+      <pre><code>python3 07-image-generation/generate_ads.py \
+  --brand-dir brands/{brand}/products/{product}/product-image-ads/{ad-set} \
+  --lang sk --provider google --resolution 1K</code></pre>
+      <p>Predvolený provider je <code>google</code>. Dostupné sú aj <code>google-batch</code>, <code>fal</code> a <code>gpt-image</code>. Iného providera alebo batch použi iba na výslovný pokyn.</p>
+      <h3 style="margin-top:24px">Voliteľný export pre Google Ads Performance Max</h3>
+      <div class="callout warning"><strong>PMax sa nikdy negeneruje automaticky.</strong>Použi ho iba po výslovnej žiadosti o PMax alebo Google Ads bannery. Všeobecný pokyn na generovanie bannerov zahŕňa iba štandardné Meta výstupy.</div>
+      <p>PMax vychádza z rovnakého schváleného Meta konceptu, template-u, copy, test plánu, scoringu a approvalu. Nie je to nový strategický workflow; mení sa iba kompozícia a rozmer.</p>
+      <pre><code>python3 07-image-generation/generate_ads.py \
+  --brand-dir brands/{brand}/products/{product}/product-image-ads/{ad-set} \
+  --lang sk --provider google --resolution 1K --pmax</code></pre>
+      <p>Vzniknú varianty <code>1200×628</code> (1.91:1), <code>1200×1200</code> (1:1) a <code>960×1200</code> (4:5), s kritickým obsahom v centrálnej 80 % safe zóne. Ukladajú sa oddelene do <code>outputs-pmax/</code>. Každý PNG treba znovu vizuálne skontrolovať; zmena copy by vyžadovala nový scoring a approval. Rozmery vychádzajú z <a href="https://support.google.com/google-ads/answer/14530211">oficiálnych požiadaviek Google Ads</a>.</p>
+      <h3 style="margin-top:24px">3. Otvor a skontroluj každý PNG</h3>
+      <div class="grid">
+        <ul class="checklist card">
+          <li>Všetky texty sú presné a čitateľné.</li>
+          <li>Logo, farby a vizuálny štýl sedia s brand kartami.</li>
+          <li>Produkt zodpovedá referenčnej fotografii.</li>
+          <li>Cena a ponuka patria správnemu trhu.</li>
+          <li>Safe zones a pomer strán sedia s templatom.</li>
+          <li>Vizuál stále realizuje plánovaný hook a angle.</li>
+        </ul>
+        <ul class="checklist dont card">
+          <li>Nevymýšľaj chýbajúce slová alebo produktové vlastnosti.</li>
+          <li>Nemeň schválenú copy priamo v obrázku.</li>
+          <li>Neregeneruj celú sadu kvôli jednému chybnému banneru.</li>
+          <li>Nemaž existujúce <code>outputs/</code>.</li>
+          <li>Nepovažuj technický úspech API za vizuálny PASS.</li>
+          <li>Neodosielaj FAIL kreatívu do B2.</li>
+        </ul>
+      </div>
+      <p>Verdikt pre každý banner: <strong>PASS</strong>, <strong>PASS s drobnosťou</strong> alebo <strong>FAIL</strong>. FAIL sa opravuje cielenou regeneráciou konkrétneho variantu. Ak sa PNG po hodnotení zmení alebo chýba, prípadne ide o staré hodnotenie bez hashu, dashboard ho označí ako <em>Prehodnotiť</em> a treba ho posúdiť znova.</p>
+      <div class="callout warning"><strong>Headline test pri AI renderi nie je automaticky čistý.</strong>Model zakaždým prekreslí celý obrázok, takže sa mení aj vizuál. Čistý headline test potrebuje spoločný podklad; inak výsledok označ ako porovnanie kreatív s obmedzenou izoláciou.</div>
+
+      <h3 style="margin-top:24px">4. Cielená regenerácia chybného variantu</h3>
+      <p>Cieľom je prepísať iba zlé súbory a nechať hotové bannery na mieste. Priečinok <code>outputs/</code> nemaž ani nepremenúvaj.</p>
+      <p><strong>Najprv rozhodni, či sa mení copy.</strong> Ak áno, oprav <code>prompts-{lang}.json</code>; tým sa rozbije hashová väzba a musíš zopakovať scoring aj approval, inak pre-flight neprejde. Ak je copy v poriadku a zlyhal len render, prompty nechaj tak a nič sa neopakuje.</p>
+      <pre><code>python3 07-image-generation/generate_ads.py \
+  --brand-dir brands/{brand}/products/{product}/product-image-ads/{ad-set} \
+  --lang sk --provider google \
+  --templates 21 --aspects 4:5 --exact-size</code></pre>
+      <div class="callout warning"><strong><code>--aspects</code> a <code>--exact-size</code> idú spolu.</strong>Tieto dva flagy určujú názov výstupného súboru, a tým aj to, či sa pôvodný banner naozaj prepíše. Pozri sa na názov existujúceho PNG a použi rovnakú kombináciu; pri px názve ako <code>1080x1350</code> vždy pridaj <code>--exact-size</code>.</div>
+      <table>
+        <thead><tr><th>Použité flagy</th><th>Vznikne súbor</th></tr></thead>
+        <tbody>
+          <tr><td>bez <code>--aspects</code></td><td><code>…_v1_img1.png</code></td></tr>
+          <tr><td><code>--aspects 4:5</code></td><td><code>…_v1_4x5_img1.png</code></td></tr>
+          <tr><td><code>--aspects 4:5 --exact-size</code></td><td><code>…_v1_1080x1350_img1.png</code></td></tr>
+        </tbody>
+      </table>
+      <p class="muted" style="margin-top:12px">Predvolené rozmery: <code>1:1</code> = 1080×1080, <code>4:5</code> = 1080×1350, <code>9:16</code> = 1080×1920, <code>16:9</code> = 1920×1080, <code>2:3</code> = 1080×1620.</p>
+      <p style="margin-top:18px"><strong>Keď template zdieľa viac konceptov.</strong> Pri hook teste stojí niekoľko konceptov na jednom template, takže <code>--templates 21</code> zasiahne všetky naraz — filter podľa <code>concept_id</code> v skripte nie je a hotové bannery by sa prepísali. Pusti beh do dočasného priečinka a späť prenes iba opravený súbor:</p>
+      <pre><code>python3 07-image-generation/generate_ads.py \
+  --brand-dir brands/{brand}/products/{product}/product-image-ads/{ad-set} \
+  --lang sk --provider google \
+  --templates 21 --aspects 4:5 --exact-size \
+  --output-dir outputs-regen</code></pre>
+      <p>Z <code>outputs-regen/</code> prekopíruj do <code>outputs/</code> len PNG chybného konceptu a zvyšok priečinka zmaž. Výstupné priečinky sú odlíšené cez <code>concept_id</code> (<code>21-…-C01</code>, <code>21-…-C02</code>), takže vieš presne, ktorý súbor je ktorý.</p>
+      <div class="callout danger"><strong>Neokresávaj <code>prompts-{lang}.json</code> na jeden koncept.</strong>Pre-flight vyžaduje pokrytie plán ↔ prompty presne 1 : 1, takže takto zúžený súbor neprejde.</div>
+    </section>
+
+    <section id="results">
+      <h2>Čo sa deje po hotovom banneri</h2>
+      <div class="sequence"><span>B2 handoff</span><i>→</i><span>človek spustí test</span><i>→</i><span>C vyhodnotenie</span><i>→</i><span>D fatigue</span><i>→</i><span>ďalšia iterácia</span></div>
+      <table>
+        <thead><tr><th>Súbor</th><th>Obsah</th><th>Kedy sa aktualizuje</th></tr></thead>
+        <tbody>
+          <tr><td><code>testing/tracker.md</code></td><td>Plán, konkrétne kreatívy (súbor + SHA), Meta Ad ID, skutočný stav, výsledky s obdobím a verdikty-odporúčania.</td><td>B2 vytvorí riadky; po nasadení sa doplní Meta ID; C doplní metriky.</td></tr>
+          <tr><td><code>testing/learnings.md</code></td><td>Prenositeľné poznatky s ID, nie iba popis jedného výsledku.</td><td>Po interpretovateľnom vyhodnotení; ďalší B1 plán ich načíta.</td></tr>
+          <tr><td><code>testing/fatigue.md</code></td><td>Únava aktívnych kreatív a rotačný plán.</td><td>Pravidelne v režime D.</td></tr>
+        </tbody>
+      </table>
+      <h3 style="margin-top:26px">Kam sa vrátiť podľa problému</h3>
+      <table>
+        <thead><tr><th>Diagnóza</th><th>Návrat</th></tr></thead>
+        <tbody>
+          <tr><td>Nesprávna persona, pain alebo slabá angle mapa</td><td>Krok 2</td></tr>
+          <tr><td>Slabý koncept alebo hook</td><td>Krok 3 a nový B1 plán</td></tr>
+          <tr><td>Nečistá testovacia logika</td><td>Krok 4</td></tr>
+          <tr><td>Slabé copy alebo nevhodný template</td><td>Krok 5</td></tr>
+          <tr><td>Preklep, logo alebo render chyba</td><td>Krok 7, iba chybný variant</td></tr>
+          <tr><td>Fatigue víťaznej kreatívy</td><td>Nový koncept alebo cielená variácia cez A → B1</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="languages">
+      <h2>Ďalšie jazyky a trhy</h2>
+      <p>Rozlišuj <strong>jazyk</strong>, <strong>trh</strong> a <strong>menu</strong>. Preklad schváleného zdroja má vlastný <code>prompts-{lang}.json</code> s poľom <code>"source_prompts": "prompts-sk.json"</code>, vlastný scoring a approval. Test plán ostáva rovnaký iba pri nezmenenej ponuke. Samostatná vetva klienta pre iný trh (vlastná ponuka, ceny, oslovenie) nie je preklad: má vlastný plán a plný scoring 01–08.</p>
+      <div class="grid">
+        <article class="card"><span class="tag production">1</span><h3>Preklad copy</h3><p>Prekladá sa iba schválený zdroj. Brief ostáva zamknutý, oslovenie (tykanie/vykanie) sa riadi pravidlami klienta pre daný trh a meno autora skutočnej recenzie sa nemení.</p></article>
+        <article class="card"><span class="tag production">2</span><h3>Jazykový scoring</h3><p>Opakujú sa kontroly 04–08 vrátane fact-checku v Translation Mode. Platia iba nad zdrojom so scoringom 01–08 a approvalom, ktorý sa od prekladu nezmenil.</p></article>
+        <article class="card"><span class="tag production">3</span><h3>Lokálny review</h3><p>Človek so znalosťou trhu potvrdí prirodzenosť textu, ponuku, cenu a menu.</p></article>
+        <article class="card"><span class="tag production">4</span><h3>Samostatný výstup</h3><p>Jazyk sa generuje do <code>outputs-{lang}/</code>. Alternatívne image translator prenesie schválené texty do hotového banneru — nič neprekladá sám, prechádza rovnakými bránami a prijme iba evidovaný render s vizuálnym PASS.</p></article>
+      </div>
+      <pre style="margin-top:18px"><code>python3 07-image-generation/workflow_gate.py init-scoring \
+  --prompts path/to/prompts-hu.json --mode translation
+
+python3 BONUS/03-image-translator/translate_ads.py \
+  --image path/to/ad-set/outputs/01-headline-template-C01/headline-template_v1_img1.png \
+  --languages hu --qa-export path/to/creative-qa.json --dry-run</code></pre>
+      <div class="callout danger" style="margin-top:18px"><strong>Cenu nikdy automaticky neprepočítavaj.</strong>Pre iný trh musí cenu potvrdiť človek a approval musí obsahovať <code>market_prices_confirmed=true</code>, ktoré zapíše prepínač <code>--market-prices-confirmed</code>.</div>
+    </section>
+
+    <section id="troubleshooting">
+      <h2>Keď niečo nejde</h2>
+      <details open><summary>Validácia hlási neplatný test plán alebo hash</summary><div>Ak ide o starý plán so <code>schema_version: 1</code> pri existujúcom ad sete, pridaj <code>--allow-legacy</code>; pri novom ad sete vytvor plán cez <code>init</code>. Plán sa zmenil po naviazaní promptov alebo nemá stav <code>planned</code>. Najprv oprav a validuj plán, potom znova spusti <code>test_plan.py bind</code>. Následne treba zopakovať scoring a approval, pretože sa zmenia prompty.</div></details>
+      <details><summary>Validácia hlási, že renderovaný hook nesedí s plánom</summary><div>Headline (alebo pole z <code>hook_field</code>) sa líši od hooku v <code>test-plan.json</code>, prípadne je text hooku napísaný v prompte natvrdo. Ak ide o preklep, oprav prompt a zopakuj scoring a approval. Ak má byť hook iný, je to strategická zmena — vráť sa do B1, uprav plán a znovu ho naviaž.</div></details>
+      <details><summary>Prekladový scoring neprechádza</summary><div><code>mode: translation</code> platí iba pre súbor so <code>source_prompts</code>. Zdroj musí mať kompletný scoring 01–08 aj approval a od prekladu sa nesmie zmeniť. Po zmene zdroja zopakuj preklad, <code>init-scoring --mode translation</code> aj approval.</div></details>
+      <details><summary>Validácia hlási neúplný research</summary><div>Doplň chýbajúce dokumenty v <code>marketing-research/</code>, alebo pri SKU v pokrytej kategórii pridaj do <code>product-facts.md</code> hlavičku <code>&gt; research-source: ../../&lt;kategoria&gt;/marketing-research/</code>.</div></details>
+      <details><summary>Validácia hlási neplatný scoring alebo approval</summary><div>Copy sa po kontrole zmenilo alebo chýba reálny výsledok niektorého agenta. Neinštaluj obchádzku a neprepisuj hash ručne. Zopakuj príslušnú kontrolu nad aktuálnou verziou promptov.</div></details>
+      <details><summary>Chýbajú produktové obrázky alebo brand karty</summary><div>Skontroluj <code>source-product-images/</code> konkrétneho produktu a oba PNG súbory v <code>brand-dna/</code>. Textový opis produktu nie je náhrada autoritatívnej fotografie.</div></details>
+      <details><summary>Banner má zlý text, logo alebo detail produktu</summary><div>Označ konkrétny variant ako FAIL, uprav jeho prompt alebo referencie a regeneruj iba tento variant. Hotové obrázky ostatných variantov nemaž.</div></details>
+      <details><summary>Nevieme, aký avatar, angle alebo hook použiť</summary><div>Nezačínaj templatom. Vráť sa do Meta Ads Managera: podľa stavu dát do režimu S alebo A, potom vytvor nový B1 plán.</div></details>
+      <details><summary>Chceme vidieť, ako bude nový template približne vyzerať</summary><div>Spusti <code>python3 05-creative-production/template_preview.py --template path/to/template.md</code> a potom <code>python3 tools/dashboard/build_dashboard.py</code>. V záložke Template knižnica uvidíš bezplatný SVG wireframe. Voliteľný watermarked Gemini specimen vyžaduje explicitný <code>--generate-preview</code> pre jeden template; nikdy sa negeneruje automaticky a nie je produkčnou reklamou.</div></details>
+      <details><summary>Chceme prezerať a vizuálne vyhodnotiť hotové výstupy</summary><div>Použi offline dashboard cez <code>python3 tools/dashboard/build_dashboard.py</code>. Záložka Creative QA umožňuje filtrovanie, detail, porovnanie 2–4 bannerov a verdikt PASS / Drobná oprava / FAIL s poznámkou; verdikt sa viaže na SHA-256 PNG a pri zmene súboru sa zobrazí <em>Prehodnotiť</em>. Template knižnica zobrazuje globálne aj klientské náhľady a ich aktuálnosť voči SHA-256 template-u. Export <code>creative-qa.json</code> je pomocný handoff; dashboard nie je povinný krok ani náhrada produkčných brán.</div></details>
+
+      <h3 style="margin-top:30px">Inštalácia pri prvom použití</h3>
+      <pre><code>python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+cp .env.example .env</code></pre>
+      <p class="muted" style="margin-top:12px">API kľúč vlož iba do lokálneho <code>.env</code>. Nikdy ho neposielaj do Gitu, dokumentácie ani chatu.</p>
+
+      <h3 style="margin-top:28px">Kam ísť po ďalšie detaily</h3>
+      <div class="grid three">
+        <article class="card"><h3><a href="NAVOD.md">NAVOD.md</a></h3><p>Kanonický technický workflow a presné pravidlá všetkých krokov.</p></article>
+        <article class="card"><h3><a href="README.md">README.md</a></h3><p>Rýchly štart, štruktúra projektu a najpoužívanejšie príkazy.</p></article>
+        <article class="card"><h3><a href=".claude/skills/meta-ads-manager/SKILL.md">Meta Ads Manager</a></h3><p>Režimy S, E, A, B1, B2, C a D s odbornými referenciami.</p></article>
+        <article class="card"><h3><a href=".claude/skills/image-ad-generator/SKILL.md">Image Ad Generator</a></h3><p>Produkčný postup od platného plánu po vizuálne skontrolovaný banner.</p></article>
+        <article class="card"><h3><a href="CLAUDE.md">CLAUDE.md</a></h3><p>Záväzné bezpečnostné a projektové pravidlá pre oba nástroje.</p></article>
+        <article class="card"><h3><a href="README.md#kontrola-repozitára">Kontrolné testy</a></h3><p>Príkazy na overenie generátora, test plánu a dokumentácie.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer>Meta Ad Generator · Návod je spoločný pre Claude Code a Codex · BONUS rozšírenia budú podrobené samostatnej hĺbkovej revízii.</footer>
+</body>
+</html>

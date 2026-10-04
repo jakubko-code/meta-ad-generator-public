@@ -1,0 +1,35 @@
+{
+  "wireframe": {
+    "file": "05-creative-production/template-previews/17-verified-review-card/wireframe.svg",
+    "template_sha256": "82767e5c8d4bbcb454f931676d4b960652fa1e9109e4d3db1539af629b74b66f",
+    "generated_at": "2026-08-12T14:40:30+00:00",
+    "generator": "deterministic-svg-v1"
+  },
+  "schema_version": 1,
+  "template_path": "05-creative-production/01-templates-by-motion/17-verified-review-card.md",
+  "template_sha256": "82767e5c8d4bbcb454f931676d4b960652fa1e9109e4d3db1539af629b74b66f",
+  "template_number": 17,
+  "slug": "17-verified-review-card",
+  "title": "17 — Verified Review Card",
+  "scope": "global",
+  "brand": "",
+  "aspect_ratio": "1:1",
+  "needs_product_images": true,
+  "styles": [
+    {
+      "code": "A",
+      "name": "Default"
+    }
+  ],
+  "selected_style": "A",
+  "slots": [
+    "HEADLINE QUOTE",
+    "READ MORE",
+    "HELPFULNESS",
+    "REVIEWER",
+    "VERIFIED TAG",
+    "REVIEW TEXT"
+  ],
+  "description": "Solid brand-color background. A big pull-quote headline at top with five gold stars. A white review card containing full review UI (avatar, name, verified badge, body, \"Read more\" link, helpfulness counter). Product overlaps the card edge on the right. No brand logo — the review UI is the whole trust mechanic.",
+  "layout": "testimonial"
+}

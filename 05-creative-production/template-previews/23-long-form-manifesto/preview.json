@@ -1,0 +1,31 @@
+{
+  "wireframe": {
+    "file": "05-creative-production/template-previews/23-long-form-manifesto/wireframe.svg",
+    "template_sha256": "bf031817da4021aae3b765f5d43aa1ac543eb5a2aa3f50a8373b7e4b527c5e41",
+    "generated_at": "2026-08-12T14:40:30+00:00",
+    "generator": "deterministic-svg-v1"
+  },
+  "schema_version": 1,
+  "template_path": "05-creative-production/01-templates-by-motion/23-long-form-manifesto.md",
+  "template_sha256": "bf031817da4021aae3b765f5d43aa1ac543eb5a2aa3f50a8373b7e4b527c5e41",
+  "template_number": 23,
+  "slug": "23-long-form-manifesto",
+  "title": "23 — Long-Form Manifesto / Letter Ad",
+  "scope": "global",
+  "brand": "",
+  "aspect_ratio": "1:1",
+  "needs_product_images": true,
+  "styles": [
+    {
+      "code": "A",
+      "name": "Default"
+    }
+  ],
+  "selected_style": "A",
+  "slots": [
+    "HEADLINE",
+    "BODY"
+  ],
+  "description": "Clean white background. A provocative short headline spans the top. Below it, a manifesto-style body in short punchy sentences (not paragraphs) — acknowledges an objection, reframes it, closes with a confident brand statement. The product sits small at the bottom as a closer. No icons, no badges, no CTA. The writing is the creative.",
+  "layout": "editorial"
+}

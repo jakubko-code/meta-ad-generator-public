@@ -1,0 +1,31 @@
+{
+  "wireframe": {
+    "file": "05-creative-production/template-previews/34-faux-iphone-notes-screenshot/wireframe.svg",
+    "template_sha256": "92258cb5029ed75ba3a40378db921ee43b17e6c78ae0dc36ddafea719d2ff99c",
+    "generated_at": "2026-08-12T14:40:30+00:00",
+    "generator": "deterministic-svg-v1"
+  },
+  "schema_version": 1,
+  "template_path": "05-creative-production/01-templates-by-motion/34-faux-iphone-notes-screenshot.md",
+  "template_sha256": "92258cb5029ed75ba3a40378db921ee43b17e6c78ae0dc36ddafea719d2ff99c",
+  "template_number": 34,
+  "slug": "34-faux-iphone-notes-screenshot",
+  "title": "34 — Faux iPhone Notes / App Screenshot",
+  "scope": "global",
+  "brand": "",
+  "aspect_ratio": "1:1",
+  "needs_product_images": true,
+  "styles": [
+    {
+      "code": "A",
+      "name": "Default"
+    }
+  ],
+  "selected_style": "A",
+  "slots": [
+    "BENEFIT 1-3",
+    "HEADLINE"
+  ],
+  "description": "The ad mimics an iPhone Notes app screenshot. Top: iOS status bar + Notes nav bar + timestamp. Main area: bold serif headline + 3 benefit rows with brand-color checkmarks and food-equivalency copy (\"More Vitamin D than 800 mushrooms\"). The product breaks into the note from the right edge with spilled pieces at its base. Feels like a note someone jotted — which is exactly the trick.",
+  "layout": "editorial"
+}

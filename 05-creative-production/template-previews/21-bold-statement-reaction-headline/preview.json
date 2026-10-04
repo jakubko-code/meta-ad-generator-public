@@ -1,0 +1,31 @@
+{
+  "wireframe": {
+    "file": "05-creative-production/template-previews/21-bold-statement-reaction-headline/wireframe.svg",
+    "template_sha256": "5a28b22c05a192093a34de9ddb255fc64f1432928cbdde8a462cddfd896a40bd",
+    "generated_at": "2026-08-12T14:40:30+00:00",
+    "generator": "deterministic-svg-v1"
+  },
+  "schema_version": 1,
+  "template_path": "05-creative-production/01-templates-by-motion/21-bold-statement-reaction-headline.md",
+  "template_sha256": "5a28b22c05a192093a34de9ddb255fc64f1432928cbdde8a462cddfd896a40bd",
+  "template_number": 21,
+  "slug": "21-bold-statement-reaction-headline",
+  "title": "21 — Bold Statement / Reaction Headline",
+  "scope": "global",
+  "brand": "",
+  "aspect_ratio": "1:1",
+  "needs_product_images": true,
+  "styles": [
+    {
+      "code": "A",
+      "name": "Default"
+    }
+  ],
+  "selected_style": "A",
+  "slots": [
+    "HEADLINE",
+    "PRODUCT NAME"
+  ],
+  "description": "Vibrant diagonal gradient background. Oversized playful headline in the upper-left (Cooper Black / rounded retro feel). A hand reaching into the product from the upper right. The product sits center-right. No stats, no reviews, no badges. Pure brand voice and personality. Works for brands with strong character where the line alone can carry the ad.",
+  "layout": "data"
+}

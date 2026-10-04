@@ -1,0 +1,32 @@
+{
+  "wireframe": {
+    "file": "05-creative-production/template-previews/35-hero-product-showcase-stat-bar/wireframe.svg",
+    "template_sha256": "bcbba828c2a4f2635529aaa9e3915b46d79598321f12f81da2abaf309ff04076",
+    "generated_at": "2026-08-12T14:40:30+00:00",
+    "generator": "deterministic-svg-v1"
+  },
+  "schema_version": 1,
+  "template_path": "05-creative-production/01-templates-by-motion/35-hero-product-showcase-stat-bar.md",
+  "template_sha256": "bcbba828c2a4f2635529aaa9e3915b46d79598321f12f81da2abaf309ff04076",
+  "template_number": 35,
+  "slug": "35-hero-product-showcase-stat-bar",
+  "title": "35 — Hero Product Showcase + Stat Bar",
+  "scope": "global",
+  "brand": "",
+  "aspect_ratio": "1:1",
+  "needs_product_images": true,
+  "styles": [
+    {
+      "code": "A",
+      "name": "Default"
+    }
+  ],
+  "selected_style": "A",
+  "slots": [
+    "SUPERLATIVE HEADLINE",
+    "STAT 1-3",
+    "CTA"
+  ],
+  "description": "Superlative claim headline at the top (\"THE WORLD'S HEALTHIEST CHOCOLATE\"), a rounded CTA button, product hero in the center with ingredient debris (broken pieces, cocoa dust, crumbs) scattered radially around it, and a white rounded-pill stat bar at the bottom with 3 product metrics. Classic premium e-comm layout with texture energy.",
+  "layout": "data"
+}

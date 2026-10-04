@@ -1,0 +1,32 @@
+{
+  "wireframe": {
+    "file": "05-creative-production/template-previews/38-ugc-lifestyle-product-review-card-split/wireframe.svg",
+    "template_sha256": "92f26a7f5be65e76b1b45db1daba606e844dc92f6054972c44145ce97bfb6ed0",
+    "generated_at": "2026-08-12T14:40:30+00:00",
+    "generator": "deterministic-svg-v1"
+  },
+  "schema_version": 1,
+  "template_path": "05-creative-production/01-templates-by-motion/38-ugc-lifestyle-product-review-card-split.md",
+  "template_sha256": "92f26a7f5be65e76b1b45db1daba606e844dc92f6054972c44145ce97bfb6ed0",
+  "template_number": 38,
+  "slug": "38-ugc-lifestyle-product-review-card-split",
+  "title": "38 — UGC Lifestyle + Product + Review Card (Split)",
+  "scope": "global",
+  "brand": "",
+  "aspect_ratio": "4:5",
+  "needs_product_images": true,
+  "styles": [
+    {
+      "code": "A",
+      "name": "Default"
+    }
+  ],
+  "selected_style": "A",
+  "slots": [
+    "STAR RATING",
+    "BRAND LOGO",
+    "REVIEW TEXT"
+  ],
+  "description": "Vertical split social proof ad. Left 55%: casual UGC photo of a person enjoying the product in context (sipping, applying, eating). Right 45%: solid brand-color panel with the product studio-lit and a white rounded review card below — 5 stars + short quote + brand logo at the bottom. Small sparkle/star decorative accents. Warm social proof meets design polish.",
+  "layout": "testimonial"
+}

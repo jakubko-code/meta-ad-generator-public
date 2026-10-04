@@ -1,0 +1,32 @@
+{
+  "wireframe": {
+    "file": "05-creative-production/template-previews/20-advertorial-editorial-card/wireframe.svg",
+    "template_sha256": "b63d5e406fc6b2775a575d86a469846d6a017c1da62a26580e27cf0982e4afb6",
+    "generated_at": "2026-08-12T14:40:30+00:00",
+    "generator": "deterministic-svg-v1"
+  },
+  "schema_version": 1,
+  "template_path": "05-creative-production/01-templates-by-motion/20-advertorial-editorial-card.md",
+  "template_sha256": "b63d5e406fc6b2775a575d86a469846d6a017c1da62a26580e27cf0982e4afb6",
+  "template_number": 20,
+  "slug": "20-advertorial-editorial-card",
+  "title": "20 — Advertorial / Editorial Content Card",
+  "scope": "global",
+  "brand": "",
+  "aspect_ratio": "4:5",
+  "needs_product_images": false,
+  "styles": [
+    {
+      "code": "A",
+      "name": "Default"
+    }
+  ],
+  "selected_style": "A",
+  "slots": [
+    "CATEGORY TAG",
+    "HANDLE",
+    "HEADLINE"
+  ],
+  "description": "Full-bleed moody portrait photo. Editorial framing: a category tag pill (\"HOT TOPIC\"), a massive condensed all-caps headline spanning full width, and a social-handle signature at the bottom. No product, no CTA, no stars. Designed to read like a culture/news post, not a paid ad. Works in awareness campaigns where the goal is to earn the click, not close the sale.",
+  "layout": "editorial"
+}

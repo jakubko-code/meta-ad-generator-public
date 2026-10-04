@@ -1,0 +1,34 @@
+{
+  "wireframe": {
+    "file": "05-creative-production/template-previews/09-negative-marketing/wireframe.svg",
+    "template_sha256": "73f1ded5b276078c436997ed9ea981caa0710b60ba5640b8cf2698a7dd30f029",
+    "generated_at": "2026-08-12T14:40:30+00:00",
+    "generator": "deterministic-svg-v1"
+  },
+  "schema_version": 1,
+  "template_path": "05-creative-production/01-templates-by-motion/09-negative-marketing.md",
+  "template_sha256": "73f1ded5b276078c436997ed9ea981caa0710b60ba5640b8cf2698a7dd30f029",
+  "template_number": 9,
+  "slug": "09-negative-marketing",
+  "title": "09 — Negative Marketing (Bait & Switch)",
+  "scope": "global",
+  "brand": "",
+  "aspect_ratio": "4:5",
+  "needs_product_images": true,
+  "styles": [
+    {
+      "code": "A",
+      "name": "Default"
+    }
+  ],
+  "selected_style": "A",
+  "slots": [
+    "BAIT HEADLINE",
+    "PUNCHLINE",
+    "REVIEWER",
+    "VERIFIED TAG",
+    "CTA"
+  ],
+  "description": "A fake one-star review card over a product background. The review text LOOKS negative at first glance (\"I can't believe this,\" \"I was so annoyed\") but actually resolves into a positive reveal (\"...that no one told me about this sooner\"). A punchline at the bottom reframes it: \"THE REVIEWS ARE IN.\" The bait-and-switch is the hook — the viewer stops to read what the \"problem\" is.",
+  "layout": "hero"
+}

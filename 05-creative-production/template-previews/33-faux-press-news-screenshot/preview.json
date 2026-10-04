@@ -1,0 +1,31 @@
+{
+  "wireframe": {
+    "file": "05-creative-production/template-previews/33-faux-press-news-screenshot/wireframe.svg",
+    "template_sha256": "fe5e25ff4dc9f7cea012c4826492d3cf922dc57bede00b2d4b16c81d9cb8e83b",
+    "generated_at": "2026-08-12T14:40:30+00:00",
+    "generator": "deterministic-svg-v1"
+  },
+  "schema_version": 1,
+  "template_path": "05-creative-production/01-templates-by-motion/33-faux-press-news-screenshot.md",
+  "template_sha256": "fe5e25ff4dc9f7cea012c4826492d3cf922dc57bede00b2d4b16c81d9cb8e83b",
+  "template_number": 33,
+  "slug": "33-faux-press-news-screenshot",
+  "title": "33 — Faux Press / News Article Screenshot",
+  "scope": "global",
+  "brand": "",
+  "aspect_ratio": "4:5",
+  "needs_product_images": false,
+  "styles": [
+    {
+      "code": "A",
+      "name": "Default"
+    }
+  ],
+  "selected_style": "A",
+  "slots": [
+    "PUBLICATION NAME",
+    "HEADLINE"
+  ],
+  "description": "Designed to look like a real online news article screenshot someone would share to their story. Top 25%: publication masthead (bold black serif \"Daily Mail\" / \"TODAY\" / \"INSIDER\" style), thin gray rule, \"Latest Headlines\" label, then a bold serif headline spanning full width. Bottom 60%: two side-by-side casual UGC selfies of different people holding the product. Borrows the authority of press without naming a real o",
+  "layout": "editorial"
+}
